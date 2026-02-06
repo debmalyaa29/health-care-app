@@ -53,7 +53,7 @@ const VerificationPage = async () => {
                   </p>
                   <ul className="list-disc pl-5 space-y-1 mb-3">
                     <li>Insufficient or unclear credential documentation</li>
-                    <li>Professional experience requirements not met</li>
+                    <li>Professional experiance requirements not met</li>
                     <li>Incomplete or vague service description</li>
                   </ul>
                   <p>

@@ -97,8 +97,8 @@ export function PendingDoctors({ doctors }) {
                             {doctor.name}
                           </h3>
                           <p className="text-sm text-muted-foreground">
-                            {doctor.specialty} • {doctor.experience} years
-                            experience
+                            {doctor.speciality} • {doctor.experiance} years
+                            experiance
                           </p>
                         </div>
                       </div>
@@ -184,14 +184,14 @@ export function PendingDoctors({ doctors }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
                   <div className="space-y-1">
                     <h4 className="text-sm font-medium text-muted-foreground">
-                      Specialty
+                      Speciality
                     </h4>
                     <p className="text-white">{selectedDoctor.speciality}</p>
                   </div>
 
                   <div className="space-y-1">
                     <h4 className="text-sm font-medium text-muted-foreground">
-                      Years of Experience
+                      Years of Experiance
                     </h4>
                     <p className="text-white">
                       {selectedDoctor.experiance} years
