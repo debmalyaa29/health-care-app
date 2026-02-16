@@ -101,38 +101,42 @@ export async function getDoctorAvailability() {
 }
 
 export async function getDoctorAppointments() {
-  const {userId} = await auth();
+  const { userId } = await auth();
 
-  if(!userId){
-    throw new Error("Unauthorised")
+  if (!userId) {
+    throw new Error("Unauthorized");
   }
+
   try {
     const doctor = await db.user.findUnique({
-      where:{
-        clerkUserId:userId,
-        role:"DOCTOR"
-      }
-    })
-    if(!doctor){
-      throw new Error ("Doctor not found");
+      where: {
+        clerkUserId: userId,
+        role: "DOCTOR",
+      },
+    });
+
+    if (!doctor) {
+      throw new Error("Doctor not found");
     }
+
     const appointments = await db.appointment.findMany({
-      where:{
-        doctorId:doctor.id,
-        status:{
-          in:["SCHEDULED"],
+      where: {
+        doctorId: doctor.id,
+        status: {
+          in: ["SCHEDULED"],
         },
       },
-      include:{
-        patirnt:true,
+      include: {
+        patient: true,
       },
-      orderBy:{
-        startTime:"asc"
-      }
-    })
-    return {appointments};
+      orderBy: {
+        startTime: "asc",
+      },
+    });
+
+    return { appointments };
   } catch (error) {
-    throw new Error("Failled to fetch appointments"+ error.message)
+    throw new Error("Failed to fetch appointments " + error.message);
   }
 }
 
