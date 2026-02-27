@@ -166,7 +166,7 @@ export async function cancelAppointment(formData){
       },
       include:{
         patient:true,
-        docotr:true,
+        doctor:true,
       }
     })
     if(!appointment){
@@ -199,7 +199,7 @@ export async function cancelAppointment(formData){
           type:"APPOINTMENT_DEDUCTION",
         }
       })
-      await itxClientDenyList.user.updata({
+      await tx.user.update({
         where:{
           id:appointment.patientId,
         },
@@ -209,7 +209,7 @@ export async function cancelAppointment(formData){
           }
         }
       })
-      await itxClientDenyList.user.updata({
+      await tx.user.update({
         where:{
           id:appointment.doctorId,
         },
